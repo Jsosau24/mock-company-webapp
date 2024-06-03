@@ -6,11 +6,14 @@ pipeline {
 
    agent any
 
+    environment {
+        NODE_OPTIONS = '--openssl-legacy-provider'
+    }
+
     stages {
         stage('Build') {
             steps {
                 script {
-                    // TODO: Add the build step
                     sh './gradlew assemble'
                 }
             }
@@ -18,7 +21,6 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // TODO: Add the test step
                     sh './gradlew test'
                 }
             }

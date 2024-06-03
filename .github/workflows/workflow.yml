@@ -29,7 +29,9 @@ jobs:
       working-directory: client-app
 
     - name: Build with Gradle
-      run: ./gradlew assemble
+      run: |
+        export NODE_OPTIONS=--openssl-legacy-provider
+        ./gradlew assemble
 
     - name: Run tests with Gradle
       run: ./gradlew test
