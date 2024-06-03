@@ -16,10 +16,16 @@ jobs:
       with:
         java-version: 8
 
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Yarn
+      run: npm install -g yarn
+
     - name: Build with Gradle
       run: ./gradlew assemble
 
     - name: Run tests with Gradle
       run: ./gradlew test
-
-
